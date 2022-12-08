@@ -1,0 +1,13 @@
+{
+  "type": "origins:model_color",
+  "red": 0.3,
+  "green": 0.3,
+  "blue": 1.0,
+  "hidden": true,
+  "condition": {
+    "type": "origins:resource",
+    "resource": "haiken:blue_power",
+    "comparison": ">",
+    "compare_to": 0
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "origins:active_self",
+  "key": {
+    "key": "key.origins.ternary_active",
+    "continuous": false
+  },
+  "name": "Ancient Attack",
+  "description": "Your ancestor the warden taught you how to use the sonic boom attack, you summon a sonic boom in the direction you're looking, dealing 15 hearts of damage to anything in its path.",
+  "cooldown": 600,
+  "hud_render": {
+    "should_render": true,
+    "sprite_location": "haiken:textures/gui/axolotl_bars.png",
+    "bar_index": 2
+  },
+  "entity_action": {
+    "type": "origins:trigger_cooldown",
+    "power": "haiken:ancient_attack_trigger"
+  }
+}

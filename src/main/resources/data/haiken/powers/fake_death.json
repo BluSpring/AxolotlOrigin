@@ -1,0 +1,10 @@
+{
+  "type": "origins:simple",
+  "hidden": true,
+  "condition": {
+    "type": "origins:resource",
+    "resource": "haiken:fake_death_trigger",
+    "comparison": ">",
+    "compare_to": 0
+  }
+}

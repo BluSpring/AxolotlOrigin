@@ -1,0 +1,24 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "xyz.bluspring.axolotlorigin.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "AttackGoalMixin",
+    "BucketItemMixin",
+    "CrossbowAttackGoalMixin",
+    "EntityBucketItemMixin",
+    "EntityMixin",
+    "LivingEntityMixin",
+    "MeleeAttackGoalMixin",
+    "PlayerEntityMixin",
+    "PowderSnowBlockMixin",
+    "apoli.ActiveCooldownPowerMixin"
+  ],
+  "client": [
+    "MinecraftClientMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

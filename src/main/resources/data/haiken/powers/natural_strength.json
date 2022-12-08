@@ -1,0 +1,10 @@
+{
+  "type": "origins:modify_damage_dealt",
+  "modifier": {
+    "name": "Extra damage",
+    "operation": "addition",
+    "value": 2.0
+  },
+  "name": "Natural Strength",
+  "description": "1 heart gone"
+}

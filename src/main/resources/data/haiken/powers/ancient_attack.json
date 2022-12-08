@@ -1,0 +1,10 @@
+{
+  "type": "origins:simple",
+  "hidden": true,
+  "condition": {
+    "type": "origins:resource",
+    "resource": "haiken:ancient_attack_trigger",
+    "comparison": ">",
+    "compare_to": 0
+  }
+}

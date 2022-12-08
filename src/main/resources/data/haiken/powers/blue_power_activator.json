@@ -1,0 +1,25 @@
+{
+  "type": "origins:active_self",
+  "key": {
+    "key": "key.origins.primary_active",
+    "continuous": false
+  },
+  "cooldown": 850,
+  "hud_render": {
+    "should_render": true,
+    "sprite_location": "haiken:textures/gui/axolotl_bars.png",
+    "bar_index": 0
+  },
+  "name": "Blue Axolotl",
+  "description": "You turn into a blue shade, granting you Regen 4, Strength 3 and 7 hearts of Absorption",
+  "entity_action": {
+    "type": "origins:trigger_cooldown",
+    "power": "haiken:blue_power"
+  },
+  "condition": {
+    "type": "origins:command",
+    "command": "execute if entity @s[tag=haiken_axolotlbucketed]",
+    "comparison": "==",
+    "compare_to": 0
+  }
+}

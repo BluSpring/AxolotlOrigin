@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "haiken-axolotl",
+  "version": "${version}",
+  "name": "AxolotlOrigin",
+  "description": "Haiken's Axolotl in a Bucket origin",
+  "authors": [
+    "BluSpring"
+  ],
+  "contact": {
+    "website": "https://bluspring.xyz"
+  },
+  "license": "MIT",
+  "icon": "assets/axolotlorigin/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "xyz.bluspring.axolotlorigin.client.AxolotlOriginClient"
+    ],
+    "main": [
+      "xyz.bluspring.axolotlorigin.AxolotlOrigin"
+    ]
+  },
+  "mixins": [
+    "AxolotlOrigin.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.2",
+    "fabric": "*",
+    "minecraft": "1.19.2",
+    "fabric-language-kotlin": ">=1.8.4+kotlin.1.7.20",
+    "pehkui": "*",
+    "extraorigins": "*",
+    "extrakeybinds": "*"
+  }
+}

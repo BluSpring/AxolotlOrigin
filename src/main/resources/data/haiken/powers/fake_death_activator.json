@@ -1,0 +1,19 @@
+{
+  "type": "origins:active_self",
+  "key": {
+    "key": "key.origins.quaternary_active",
+    "continuous": true
+  },
+  "cooldown": 600,
+  "hud_render": {
+    "should_render": true,
+    "sprite_location": "haiken:textures/gui/axolotl_bars.png",
+    "bar_index": 4
+  },
+  "name": "Fake Death",
+  "description": "When you \"die\" you go in pretend to be dead mode, you lay down on the ground and cant move for a minute to make others think you died (hostile mobs no longer target you)",
+  "entity_action": {
+    "type": "origins:trigger_cooldown",
+    "power": "haiken:fake_death_trigger"
+  }
+}

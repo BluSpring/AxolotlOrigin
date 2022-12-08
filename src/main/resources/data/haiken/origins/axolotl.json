@@ -1,0 +1,41 @@
+{
+  "powers": [
+    "haiken:night_vision",
+    "haiken:water_effects",
+    "haiken:aqua_affinity",
+    "haiken:natural_strength",
+    "haiken:antifreeze",
+
+    "haiken:short",
+    "haiken:vulnerable",
+    "haiken:seafood",
+    "origins:water_breathing",
+    "haiken:water_locked",
+    "origins:conduit_power_on_land",
+    "origins:aquatic",
+
+    "haiken:axolotl_bucket",
+
+    "haiken:fake_death",
+    "haiken:fake_death_activator",
+    "haiken:fake_death_trigger",
+
+    "haiken:blue_power",
+    "haiken:blue_power_activator",
+    "haiken:blue_power_color",
+    "haiken:blue_power_effects",
+
+    "haiken:ancient_sense",
+    "haiken:ancient_sense_activator",
+    "haiken:ancient_sense_trigger",
+
+    "haiken:ancient_attack",
+    "haiken:ancient_attack_activator",
+    "haiken:ancient_attack_trigger"
+  ],
+  "icon": "minecraft:axolotl_bucket",
+  "order": 2,
+  "impact": 1,
+  "name": "Axolotl",
+  "description": "Axolotl"
+}

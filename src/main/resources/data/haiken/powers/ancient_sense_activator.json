@@ -1,0 +1,19 @@
+{
+  "type": "origins:active_self",
+  "key": {
+    "key": "key.origins.secondary_active",
+    "continuous": false
+  },
+  "name": "Ancient Sense",
+  "description": "You've learned the powers of your ancestor The Warden, you can see players through walls.",
+  "cooldown": 350,
+  "hud_render": {
+    "should_render": true,
+    "sprite_location": "haiken:textures/gui/axolotl_bars.png",
+    "bar_index": 1
+  },
+  "entity_action": {
+    "type": "origins:trigger_cooldown",
+    "power": "haiken:ancient_sense_trigger"
+  }
+}
