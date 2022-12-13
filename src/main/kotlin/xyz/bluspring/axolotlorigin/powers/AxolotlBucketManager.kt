@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents
 import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.entity.player.PlayerEntity
+import net.minecraft.inventory.Inventories
 import net.minecraft.network.packet.s2c.play.EntityPassengersSetS2CPacket
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.server.world.ServerWorld
@@ -20,6 +21,8 @@ import java.io.File
 import java.util.*
 
 object AxolotlBucketManager {
+    private const val teleportHeight = 750.0
+
     // Map<Bucketed, Holder>
     private val bucketedPlayers = mutableMapOf<UUID, UUID>()
 
@@ -32,9 +35,9 @@ object AxolotlBucketManager {
     fun init() {
         ServerPlayConnectionEvents.JOIN.register { player, _, _ ->
             if (player.player.inventory.containsAny { it.hasNbt() && it.nbt!!.contains("BucketedPlayer") }) {
-                player.player.inventory.remove({
+                Inventories.remove(player.player.inventory, {
                     it.hasNbt() && it.nbt!!.contains("BucketedPlayer")
-                }, 64, null)
+                }, 64, true)
             }
 
             if (queueForUninvis.contains(player.player.uuid)) {
@@ -103,12 +106,12 @@ object AxolotlBucketManager {
 
         ServerLifecycleEvents.SERVER_STARTED.register {
             if (file.exists()) {
-                val json = JsonParser.parseString(file.readText()).asJsonObject
-
-                json.entrySet().forEach {
-                    val pos = it.value.asString.split(";")
-                    queueForUninvis.add(UUID.fromString(it.key))
-                }
+                try {
+                    val json = JsonParser.parseString(file.readText()).asJsonArray
+                    json.forEach {
+                        queueForUninvis.add(UUID.fromString(it.asString))
+                    }
+                } catch (_: Exception) {}
 
                 file.delete()
             }
@@ -124,9 +127,10 @@ object AxolotlBucketManager {
 
                     player.isInvisible = true
                     if (holderPlayer.world != player.world)
-                        player.moveToWorld(holderPlayer.getWorld())
+                        player.teleport(holderPlayer.getWorld(), holderPlayer.pos.x, teleportHeight, holderPlayer.pos.z, player.yaw, player.pitch)
+                    else
+                        player.teleport(holderPlayer.pos.x, teleportHeight, holderPlayer.pos.z)
 
-                    player.teleport(holderPlayer.pos.x, 500.0, holderPlayer.pos.z)
                     player.velocity = Vec3d.ZERO
                     player.addScoreboardTag("haiken_axolotlbucketed")
                 } else {
@@ -160,7 +164,7 @@ object AxolotlBucketManager {
         if (holder is ServerPlayerEntity)
             holder.networkHandler.sendPacket(EntityPassengersSetS2CPacket(holder))
 
-        entity.teleport(0.0, 500.0, 0.0)
+        entity.teleport(0.0, teleportHeight, 0.0)
         entity.addScoreboardTag("haiken_axolotlbucketed")
         entity.isInvisible = true
     }
